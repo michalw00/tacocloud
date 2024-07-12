@@ -28,7 +28,7 @@ public class JdbcIngredientRepository implements IngredientRepository {
 	@Override
 	public Optional<Ingredient> findById(String id) {
 		List<Ingredient> results = jdbcTemplate.query(
-				"select id, name type from Ingredient where id=?",
+				"select id, name, type from Ingredient where id=?",
 				this::mapRowToIngredient,
 				id
 		);

@@ -4,7 +4,6 @@ import com.tacos.entity.Ingredient;
 import com.tacos.entity.Ingredient.Type;
 import com.tacos.entity.Taco;
 import com.tacos.entity.TacoOrder;
-import com.tacos.repository.IngredientRepository;
 import com.tacos.repository.JdbcIngredientRepository;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
