@@ -4,7 +4,7 @@ import com.tacos.entity.Ingredient;
 import com.tacos.entity.Ingredient.Type;
 import com.tacos.entity.Taco;
 import com.tacos.entity.TacoOrder;
-import com.tacos.repository.JdbcIngredientRepository;
+import com.tacos.repository.IngredientRepository;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -12,7 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,11 +20,7 @@ import java.util.stream.Collectors;
 @RequestMapping("/design")
 @SessionAttributes("tacoOrder") // this line gives annotations red highlight
 public class DesignTacoController {
-	private final JdbcIngredientRepository ingredientRepository;
-
-	public DesignTacoController(JdbcIngredientRepository ingredientRepository) {
-		this.ingredientRepository = ingredientRepository;
-	}
+	private IngredientRepository ingredientRepository;
 
 	@ModelAttribute
 	public void addIngredientsToModel(Model model) {
